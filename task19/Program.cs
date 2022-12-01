@@ -3,19 +3,35 @@
 //     12821 -> да  
 //     23432 -> да
 
+// int addValue(string message)
+// {
+// link1:
+//     Console.Clear();
+//     Console.WriteLine(message);
+//     int value = int.Parse(Console.ReadLine());
+//     if ((value < 10000 && value > -10000) || value < -99999 || value > 99999)     // прроверка введенного числа на пятизначность
+//     {
+//         Console.WriteLine("Вы ввели не пятизначное число! Попробуйте заново. Для этого нажмите на ENTER");
+//         Console.ReadLine();
+//         goto link1;
+//     }
+//     else return value;
+// }
+
 int addValue(string message)
 {
-link1:
     Console.Clear();
     Console.WriteLine(message);
     int value = int.Parse(Console.ReadLine());
-    if ((value < 10000 && value > -10000) || value < -99999 || value > 99999)     // прроверка введенного числа на пятизначность
+    while ((Math.Abs(value) < 10000 && Math.Abs(value) > -10000) || Math.Abs(value) < -99999 || Math.Abs(value) > 99999)     // прроверка введенного числа на пятизначность
     {
         Console.WriteLine("Вы ввели не пятизначное число! Попробуйте заново. Для этого нажмите на ENTER");
         Console.ReadLine();
-        goto link1;
+        Console.Clear();
+        Console.WriteLine(message);
+        value = int.Parse(Console.ReadLine());
     }
-    else return value;
+    return value;
 }
 
 void intPalindromMethod(int value)
